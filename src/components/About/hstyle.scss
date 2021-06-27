@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    background: url("./me.jpeg");
+    background-repeat: no-repeat;
+width: 250px;
+height: auto;
+border-radius: 20px;
+margin-top: 30px;
+}
+.imgdiv{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+    align-items: center;
+   left: 20vw;
+}
+.heading-big{
+    color: black;
+}
+.p1{
+    opacity: 0.5;
+    font-style: italic;
+}
