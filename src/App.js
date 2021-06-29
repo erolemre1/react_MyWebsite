@@ -40,19 +40,19 @@ function App() {
           <br />
         </>
         <Switch>
-          <Route path="/about">
+          <Route path="/about" exact={true}>
             <About />
           </Route>
-          <Route path="/my-works">
+          <Route path="/my-works" exact={true}>
             <MyWorks />
           </Route>
-          <Route path="/contact">
+          <Route path="/contact" exact={true}>
             <Contact />
           </Route>
-          <Route path="/comments">
+          <Route path="/comments" exact={true}>
             <Comments />
           </Route>
-          <Route path="/">
+          <Route path="/" exact={true}>
             <About />
           </Route>
         </Switch>
