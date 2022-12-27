@@ -17,7 +17,7 @@ const About = () => {
         vardı bir süre farklı alanlarda çalıştıktan sonra Web tasarım ve mobil uygulamalar ilgimi
         çekmeye başladı ve react-native ile mobil projeler geliştirmeye başladım. Mobil uygulamalar yapıyordum ama bunların
         web tarafıda olmalıydı bu sebebten dolayı web tasarım tarafınıda öğrenmek istiyordum ilk olarak html,css ve JavaScript
-        ile ilgili udemyden kurslar alarak front-end geliştirmeler yaptım.Şu anda ise react ile web tasarım ve mobil uygulamalar
+        ile ilgili udemyden kurslar alarak front-end geliştirmeler yaptım.Şu anda ise react ile web ve mobil uygulamalar
         üzerine çalışmaktayım kariyer hedeflerimde bu alan üzerine yoğunlaşmak ve uzmanlaşmaktır.</p>
       <hr />
     </div>
