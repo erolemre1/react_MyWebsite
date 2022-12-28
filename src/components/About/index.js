@@ -10,7 +10,7 @@ const About = () => {
         <h2 className="heading-big">Erol Emre Güleç</h2>
         <p className="p1">| Front End Developer |</p>
       </div>
-      <p>  Tokat Gaziosmanpaşa üniversitesi Sosyal Bilgiler Programından 3,01 not ortalaması ile 2020 yılında mezun oldum
+      <p>  Tokat Gaziosmanpaşa üniversitesinden 3,01 not ortalaması ile 2020 yılında mezun oldum
         üniversitede c# ve unity ile yazılım ile tanışmış ve ilk oyunumu yapmıştım.
         Üniversiteden mezun olduktan sonra yazılıma bir süre ara verdim ve farklı alanlar
         üzerine çalışmaya başladım ama düşüncelerimde her zaman yazılım
