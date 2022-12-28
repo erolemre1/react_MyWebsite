@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { ContactUs } from '../Mail'
 import './style.scss'
 
 
@@ -19,6 +20,7 @@ const Contact = () => {
                             <a href="https://github.com/erolemre1" target="_blank"> <i class="fab fa-github"></i></a>
                         </li>
                 </ul>
+                <ContactUs />
         </div>
     )
 }

@@ -9,7 +9,6 @@ import About from '../src/components/About';
 import MyWorks from '../src/components/MyWorks';
 import Contact from "./components/Contact";
 import Comments from "./components/Comments";
-import { ReactComponent as Logo } from "./logo.svg";
 import { Nav, Navbar } from "react-bootstrap";
 
 function App() {
@@ -19,12 +18,6 @@ function App() {
         <>
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">
-              <Logo
-                alt=""
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-              />
               Erol Emre Güleç
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
