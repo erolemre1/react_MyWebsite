@@ -63,7 +63,7 @@ export const ContactUs = () => {
                 </form>
             </div>
             <div className='whatsappWrapper pb-5 d-flex justify-content-lg-end justify-content-center'>
-                <ReactWhatsapp number="5318105767" message="Merhaba" className='whatsapp d-flex flex-column mr-lg-5' >
+                <ReactWhatsapp number="000000000" message="Merhaba" className='whatsapp d-flex flex-column mr-lg-5' >
                     <i class="fab fa-whatsapp"></i>
                     <span>Bana whatsaptan ulaşabilirsiniz</span>
                 </ReactWhatsapp></div>
