@@ -23,26 +23,26 @@ function App() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link href="/about">Hakkımda</Nav.Link>
-                <Nav.Link href="/my-works">Yaptığım İşler</Nav.Link>
-                <Nav.Link href="/comments">Yorumlar</Nav.Link>
-                <Nav.Link href="/contact">İletişim</Nav.Link>
+                <Nav.Link href="/hakkimda">Hakkımda</Nav.Link>
+                <Nav.Link href="/isler">Yaptığım İşler</Nav.Link>
+                <Nav.Link href="/yorumlar">Yorumlar</Nav.Link>
+                <Nav.Link href="/iletisim">İletişim</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
           <br />
         </>
         <Switch>
-          <Route path="/about" exact={true}>
+          <Route path="/hakkimda" exact={true}>
             <About />
           </Route>
-          <Route path="/my-works" exact={true}>
+          <Route path="/isler" exact={true}>
             <MyWorks />
           </Route>
-          <Route path="/contact" exact={true}>
+          <Route path="/iletisim" exact={true}>
             <Contact />
           </Route>
-          <Route path="/comments" exact={true}>
+          <Route path="/yorumlar" exact={true}>
             <Comments />
           </Route>
           <Route path="/" exact={true}>
