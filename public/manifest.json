@@ -1,9 +1,9 @@
 {
-  "short_name": "Website",
-  "name": "My Website",
+  "short_name": "Emre",
+  "name": "Emre",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "../static/img/Emre-designstyle-boots-m.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
