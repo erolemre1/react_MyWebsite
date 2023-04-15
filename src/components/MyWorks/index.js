@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { myWorks } from './myworks'
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -23,7 +23,7 @@ const MyWorks = () => {
                     <Card.Text>
                       {myWork.description}
                     </Card.Text>
-                    <a href={myWork.url} target="_blank">
+                    <a href={myWork.url} target="_blank" rel="noreferrer">
                       <Button variant="primary">Projeye Git</Button>
                     </a>
                   </Card.Body>
