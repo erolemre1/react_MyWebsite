@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './hstyle.scss'
 
 const About = () => {
-  const [first, setfirst] = useState(null);
   
-
   const handleDeeplinkClick = (url, appStoreUrl) => {
-    // Check if the app is installed
-    const isAppInstalled = window.navigator.userAgent.indexOf('emlakjet') > -1;
-    console.log("window.navigator11")
-    console.log("window.navigator",window.navigator)
-    setfirst(window.navigator.userAgent)
-    if (isAppInstalled) {
-      // Open the app with the deeplink
-      window.location.href = url;
-    } else {
-      // Redirect to the app store
-      window.location.href = appStoreUrl;
-    }
+    // Attempt to open the deeplink URL
+    window.location.href = url;
+
+    // Wait for a short delay before checking if the deeplink worked
+    setTimeout(() => {
+      // Check if the browser was redirected to the app
+      if (document.hidden || document.webkitHidden) {
+        // The app is installed
+        console.log('App is installed');
+      } else {
+        // The app is not installed
+        console.log('App is not installed');
+        // Redirect to the app store
+        window.location.href = appStoreUrl;
+      }
+    }, 100);
   };
 
   return (
