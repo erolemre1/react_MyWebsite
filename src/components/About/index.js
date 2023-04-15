@@ -10,6 +10,7 @@ const About = () => {
     const isAppInstalled = window.navigator.userAgent.indexOf('emlakjet') > -1;
     console.log("window.navigator11")
     console.log("window.navigator",window.navigator)
+    setfirst(window.navigator.userAgent)
     if (isAppInstalled) {
       // Open the app with the deeplink
       window.location.href = url;
@@ -17,7 +18,6 @@ const About = () => {
       // Redirect to the app store
       window.location.href = appStoreUrl;
     }
-    setfirst(window.navigator.userAgent)
   };
 
   return (
