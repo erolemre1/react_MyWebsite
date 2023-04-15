@@ -7,45 +7,38 @@ const About = () => {
   useEffect(() => {
     setfirst(navigator.userAgent)
   }, [])
-  function isAppInstalled() {
-    // iOS için kontrol
-    if (/iP(hone|ad|od)/.test(navigator.platform)) {
-      // iOS için URL şemasını oluşturma
-      const appUrlScheme = "emlakjetapp://";
-      const appStoreLink = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334";
-      // URL şemasını kullanarak uygulamayı açma denemesi
-      const iframe = document.createElement("iframe");
-      iframe.setAttribute("src", appUrlScheme);
-      iframe.setAttribute("style", "display:none;");
-      document.body.appendChild(iframe);
-      // Uygulama açılmazsa, App Store sayfasına yönlendirme
-      setTimeout(function() {
-        document.body.removeChild(iframe);
-        window.location.href = appStoreLink;
-      }, 2000);
+
+  function getMobileOperatingSystem() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    if (/android/i.test(userAgent)) {
+      return "Android";
     }
-    // Android için kontrol
-    else if (/Android/.test(navigator.userAgent)) {
-      // Android için URL şemasını oluşturma
-      const appUrlScheme = "emlakjetapp://";
-      const playStoreLink = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334";
-      // URL şemasını kullanarak uygulamayı açma denemesi
-      const iframe = document.createElement("iframe");
-      iframe.setAttribute("src", appUrlScheme);
-      iframe.setAttribute("style", "display:none;");
-      document.body.appendChild(iframe);
-      // Uygulama açılmazsa, Play Store sayfasına yönlendirme
-      setTimeout(function() {
-        document.body.removeChild(iframe);
-        window.location.href = playStoreLink;
-      }, 3000);
+    
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return "iOS";
     }
-    // Diğer cihazlarda kontrol yapmama gerek yok
-    else {
-      return false;
-    }
+    
+    return "unknown";
   }
+
+  let appLink = "emlakjetapp://";
+
+function openApp() {
+  window.location = appLink;
   
+  setTimeout(function() {
+    if (!document.webkitHidden) {
+      window.location = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334";
+    }
+  }, 2000);
+}
+
+if (getMobileOperatingSystem() === "iOS") {
+  appLink = "emlakjetapp://";
+} else if (getMobileOperatingSystem() === "Android") {
+  appLink = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+}
 
   return (
     <div className="container" >
@@ -53,7 +46,7 @@ const About = () => {
       <button
         onClick={() => {
           setTimeout(() => {
-            isAppInstalled();
+            openApp();
           }, 500);
         }}
       >
