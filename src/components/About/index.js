@@ -9,10 +9,12 @@ const About = () => {
   
     // Check if the app has opened
     const checkAppOpened = () => {
-      if (appWindow && appWindow.closed) {
+      // Check if the app window is focused
+      if (appWindow && appWindow.window && appWindow.window.focus) {
         // The app has opened and the deeplink worked
         console.log('App is installed');
-        window.location = url
+        // Close the app window
+        appWindow.close();
       } else {
         // The app has not opened yet, or the deeplink failed
         console.log('App is not installed');
