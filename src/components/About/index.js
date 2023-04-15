@@ -7,10 +7,10 @@ const About = () => {
 
   function isMobileAppInstalled() {
     if (/android/i.test(userAgent)) {
-      return !!window.location.href.match(/your-android-package-name/i);
+      return !!window.location.href.match(/emlakjetapp/i);
     }
     if (/iPad|iPhone|iPod/i.test(userAgent)) {
-      return !!window.location.href.match(/your-ios-app-url-scheme/i);
+      return !!window.location.href.match(/emlakjetapp/i);
     }
     return false;
   }
