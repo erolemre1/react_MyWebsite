@@ -5,7 +5,7 @@ const About = () => {
   
   const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
-    const appWindow = window.open(url, '_blank');
+    const appWindow = window.location.href = url
   
     // Check if the app has opened
     const checkAppOpened = () => {
