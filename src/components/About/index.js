@@ -2,24 +2,33 @@ import React from 'react'
 import './hstyle.scss'
 import Imgg from "./me.jpeg"
 
+const handleDeeplinkClick = (url, appStoreUrl) => {
+  // Check if the app is installed
+  const isAppInstalled = window.navigator.userAgent.indexOf('emlakjet') > -1;
+  if (isAppInstalled) {
+    // Open the app with the deeplink
+    window.location.href = url;
+  } else {
+    // Redirect to the app store
+    window.location.href = appStoreUrl;
+  }
+};
 const About = () => {
   return (
     <div className="container" >
-      <div className="imgdiv">
-        <img src={Imgg} alt="" />
-        <h2 className="heading-big">Erol Emre Güleç</h2>
-        <p className="p1">| Front End Developer |</p>
-      </div>
-      <p>  Tokat Gaziosmanpaşa üniversitesinden 3,01 not ortalaması ile 2020 yılında mezun oldum
-        üniversitede c# ve unity ile yazılım ile tanışmış ve ilk oyunumu yapmıştım.
-        Üniversiteden mezun olduktan sonra yazılıma bir süre ara verdim ve farklı alanlar
-        üzerine çalışmaya başladım ama düşüncelerimde her zaman yazılım
-        vardı bir süre farklı alanlarda çalıştıktan sonra Web tasarım ve mobil uygulamalar ilgimi
-        çekmeye başladı ve react-native ile mobil projeler geliştirmeye başladım. Mobil uygulamalar yapıyordum ama bunların
-        web tarafıda olmalıydı bu sebebten dolayı web tasarım tarafınıda öğrenmek istiyordum ilk olarak html,css ve JavaScript
-        ile ilgili udemyden kurslar alarak front-end geliştirmeler yaptım.Şu anda ise react ile web ve mobil uygulamalar
-        üzerine çalışmaktayım kariyer hedeflerimde bu alan üzerine yoğunlaşmak ve uzmanlaşmaktır.</p>
-      <hr />
+      <a
+        href="#"
+        onClick={() => {
+          setTimeout(() => {
+            handleDeeplinkClick(
+              'emlakjetapp://',
+              'https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334',
+            );
+          }, 500);
+        }}
+      >
+        Open mobile app
+      </a>
     </div>
   )
 };
