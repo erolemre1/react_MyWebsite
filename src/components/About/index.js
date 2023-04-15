@@ -12,6 +12,7 @@ const About = () => {
       if (appWindow && appWindow.closed) {
         // The app has opened and the deeplink worked
         console.log('App is installed');
+        window.location = url
       } else {
         // The app has not opened yet, or the deeplink failed
         console.log('App is not installed');
