@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './hstyle.scss'
 
+
 const About = () => {
+  const [first, setfirst] = useState('asd')
+  useEffect(() => {
+    setfirst(window.location.href.match(/emlakjetapp/i))
+  }, [])
+  
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
 
@@ -34,6 +40,7 @@ const About = () => {
 
   return (
     <div className="container" >
+      {first}
       <button
         onClick={() => {
           setTimeout(() => {
