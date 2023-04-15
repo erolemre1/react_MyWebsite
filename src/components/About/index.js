@@ -10,26 +10,22 @@ const About = () => {
 
   const appUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const storeUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
-  
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   // Kullanıcının cihazında uygulama yüklü mü diye kontrol edin
   function isAppInstalled() {
-    let isInstalled = false;
-  
-    // Özel URL şemasını kullanarak kontrol edin
-    window.location.href = appUrl;
-  
-    // Kullanıcı uygulamayı açmaya çalışırsa isInstalled değişkeni true olur
-    setTimeout(function () {
-      if (!isInstalled) {
-        isInstalled = false;
+    if (isIOS) {
+      // iOS cihazlarında uygulamanın yüklü olup olmadığını kontrol edin
+      if (window.location.href.indexOf(appUrl) > -1) {
+        return true;
+      } else {
+        return false;
       }
-    }, 1000);
-  
-    // Kullanıcının cihazına geri yönlendirin
-    window.location.href = "http://www.example.com";
-  
-    return isInstalled;
+    } else {
+      // Diğer cihazlarda uygulamanın yüklü olmadığını varsayın
+      return false;
+    }
   }
+  
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
