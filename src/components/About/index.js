@@ -24,9 +24,6 @@ const About = () => {
 
   return (
     <div className="container" >
-      <div>
-        {first}
-      </div>
       <button
         onClick={() => {
           setTimeout(() => {
