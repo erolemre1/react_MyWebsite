@@ -16,7 +16,6 @@ const About = () => {
   return (
     <div className="container" >
       <a
-        href="#"
         onClick={() => {
           setTimeout(() => {
             handleDeeplinkClick(
