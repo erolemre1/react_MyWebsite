@@ -15,7 +15,7 @@ const handleDeeplinkClick = (url, appStoreUrl) => {
 const About = () => {
   return (
     <div className="container" >
-      <a
+      <button
         onClick={() => {
           setTimeout(() => {
             handleDeeplinkClick(
@@ -26,7 +26,7 @@ const About = () => {
         }}
       >
         Open mobile app
-      </a>
+      </button>
     </div>
   )
 };
