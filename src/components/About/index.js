@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './hstyle.scss'
 
 const About = () => {
   
   const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
-    window.location.href = url;
-
-    // Wait for a short delay before checking if the deeplink worked
-    setTimeout(() => {
-      // Check if the browser was redirected to the app
-      if (document.hidden || document.webkitHidden) {
-        // The app is installed
+    const appWindow = window.open(url, '_blank');
+  
+    // Check if the app has opened
+    const checkAppOpened = () => {
+      if (appWindow && appWindow.closed) {
+        // The app has opened and the deeplink worked
         console.log('App is installed');
       } else {
-        // The app is not installed
+        // The app has not opened yet, or the deeplink failed
         console.log('App is not installed');
         // Redirect to the app store
         window.location.href = appStoreUrl;
       }
-    }, 100);
+    };
+  
+    // Check if the app has opened when the current window loses focus
+    window.addEventListener('blur', checkAppOpened);
   };
 
   return (
