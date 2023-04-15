@@ -1,6 +1,5 @@
 import React from 'react'
 import './hstyle.scss'
-import Imgg from "./me.jpeg"
 
 const handleDeeplinkClick = (url, appStoreUrl) => {
   // Check if the app is installed
