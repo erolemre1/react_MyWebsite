@@ -20,7 +20,8 @@ const About = () => {
     window.location = IosDeepUrl
 
    setTimeout(() => {
-    if (navigator.userAgent.indexOf("Safari") !== -1) {
+    // eslint-disable-next-line eqeqeq
+    if (navigator.userAgent.indexOf("Safari") != -1) {
       if (confirm("App Store ile aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
