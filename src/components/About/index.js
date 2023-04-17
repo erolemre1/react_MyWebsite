@@ -27,7 +27,7 @@ const About = () => {
 
     setTimeout(() => {
       window.location.href = IosStoreUrl
-    }, 1000);
+    }, 2000);
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
