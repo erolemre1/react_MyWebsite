@@ -39,11 +39,11 @@ const About = () => {
         <meta name="apple-itunes-app" content="app-id=1551825141" />
     </head>
       {first}
-      <a href="#"
+      <button
         onClick={() => openApp()}
       >
         Open mobile app
-      </a>
+      </button>
     </div>
   )
 };
