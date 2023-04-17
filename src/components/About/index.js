@@ -8,39 +8,36 @@ const About = () => {
     setfirst(navigator.userAgent);
   }, []);
 
-  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  const IosStoreUrl =
-    "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
-  // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+  const IosDeepLink = 'emlakjetapp://'; // Uygulamanız için belirlediğiniz özel URL şeması
+  const androidDeepLink = 'ejapp://'; // Uygulamanız için belirlediğiniz özel URL şeması
+  const IosStoreUrl = 'https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr'; // Uygulamanızın App Store veya Google Play Store bağlantısı
+  const androidStoreUrl = 'intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end';
+  
+const setLink = (deeplink, storeUrl) => {
+  window.location = deeplink;
 
-  // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
-  const openApp = () => {
-  //   console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
-    window.location = IosDeepUrl
-
-   setTimeout(() => {
+  setTimeout(() => {
     // eslint-disable-next-line eqeqeq
-    if (navigator.userAgent.toLowerCase().includes("chrome")=== false) {
-      if (confirm("App Store ile aç")) {
-        window.location.href = IosStoreUrl;
+    if (navigator.userAgent.toLowerCase().includes('chrome') === false) {
+      if (confirm('App Store ile aç')) {
+        window.location.href = deeplink;
       } else {
         window.location.reload();
       }
-  } else {
-    window.location.href = IosStoreUrl;
+    } else {
+      window.location.href = storeUrl;
+    }
+  }, 500);
+};
+
+const openApp = () => {
+  const userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.indexOf('android') > -1) {
+    setLink(androidDeepLink, androidStoreUrl);
+  } else if (userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1) {
+    setLink(IosDeepLink, IosStoreUrl);
   }
-   }, 500);
-
-
-  };
-
-
-  // if (getMobileOperatingSystem() === "iOS") {
-  //   appLink = "emlakjetapp://";
-  // } else if (getMobileOperatingSystem() === "Android") {
-  //   appLink = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
-  // }
+};
 
   return (
     <div className="container">
