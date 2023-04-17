@@ -17,7 +17,7 @@ const About = () => {
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
     console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
-    // window.location = IosDeepUrl
+    window.location = IosDeepUrl
 
    setTimeout(() => {
     // eslint-disable-next-line eqeqeq
