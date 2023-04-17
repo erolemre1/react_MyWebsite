@@ -9,48 +9,42 @@ const About = () => {
   }, [])
 
   const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
-  const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+  // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
  
-  const handleDeeplinkClick = (url, appStoreUrl) => {
-    // window.location.href = url;
-    // setTimeout(() => {
-    //   // Check if the browser was redirected to the app
-    //   if (document.hidden || document.webkitHidden) {
-    //     // The app is installed
-    //     window.location.href = appStoreUrl;
-    //   } else {
-    //     window.location.href = url || appStoreUrl;
-    //     // The app is not installed
-    //     console.log('App is not installed');
-    //     // Redirect to the app store
-    //   }
-    // }, 500);
-    try {
-      window.location.href = url;
-    } catch (error) {
-      // Hata durumunda yapılacaklar
-      setfirst(error)
-      window.location.href = appStoreUrl;
+  function isAppInstalled(uriScheme) {
+    let isInstalled;
+    if (navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)) {
+      isInstalled = false;
+      const appUrl = uriScheme;
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', appUrl);
+      iframe.setAttribute('style', 'display:none;');
+      document.body.appendChild(iframe);
+      window.setTimeout(function() {
+        document.body.removeChild(iframe);
+        if (!isInstalled) {
+          // Uygulama yüklü değil, store linkine yönlendirme yapabilirsiniz
+          window.location = IosStoreUrl
+        }
+      }, 2000);
+      window.onblur = function() {
+        isInstalled = true;
+      };
+    } else {
+      // iOS 7'den önceki sürümlerde, uygulama kontrolü için canlı test gereklidir.
+      window.location.href = uriScheme;
     }
-  };
+  }
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-
-    if (/Android/i.test(navigator.userAgent)) {
-      // Android için deep link
-      handleDeeplinkClick(androidDeepUrl, androidStoreUrl) 
-    } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      // iOS için deep link
-      handleDeeplinkClick(IosDeepUrl, IosStoreUrl) 
+    if (isAppInstalled(IosDeepUrl)) {
+      window.location.href = IosDeepUrl; // Uygulamayı aç
     } else {
-      // Deep link desteklenmeyen cihazlar
-      window.location.href = 'www.google.com';
+      window.location.href = IosStoreUrl; // Store sayfasına yönlendir
     }
-    
-  
 
   }
 
