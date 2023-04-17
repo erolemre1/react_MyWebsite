@@ -19,13 +19,12 @@ const About = () => {
       // Check if the browser was redirected to the app
       if (document.hidden || document.webkitHidden) {
         // The app is installed
-        console.log('App is installed');
-        window.location.href = url;
+        window.location.href = appStoreUrl;
       } else {
+        window.location.href = url;
         // The app is not installed
         console.log('App is not installed');
         // Redirect to the app store
-        window.location.href = appStoreUrl;
       }
     }, 500);
   };
