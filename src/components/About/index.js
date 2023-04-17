@@ -16,11 +16,11 @@ const About = () => {
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
- window.location.href = IosDeepUrl;
-  setTimeout(function() {
-    // uygulama hala açık değilse, uygulama mağazasının sayfasını aç
-    if (document.hidden || document.webkitHidden) {
-      window.location.href = IosStoreUrl;
+    window.location.href = IosStoreUrl;
+    setTimeout(function() {
+      // uygulama hala açık değilse, uygulama mağazasının sayfasını aç
+      if (document.hidden || document.webkitHidden) {
+      window.location.href = IosDeepUrl;
     }
   }, 500);
   }
