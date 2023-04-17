@@ -26,7 +26,7 @@ const About = () => {
         // Kullanıcı "İptal" düğmesine tıkladı
         window.location.reload();
       }
-    }, 100);
+    }, 10);
   };
 
   // if (getMobileOperatingSystem() === "iOS") {
