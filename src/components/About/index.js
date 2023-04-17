@@ -9,20 +9,38 @@ const About = () => {
   }, [])
 
   const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr" // Uygulamanızın App Store veya Google Play Store bağlantısı
-  // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+  const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-    window.location.href = IosDeepUrl;
+    function isAppInstalled() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOS = /iphone|ipad|ipod/.test(userAgent);
+      const isAndroid = /android/.test(userAgent);
+    
+      if (isIOS) {
+        if(window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.Emlakjet){
+window.location = IosDeepUrl
+        } else {
+window.location = IosStoreUrl
+          
+        }
+      } else if (isAndroid) {
+        if(window.Android && window.Android.Emlakjet){
+          window.location = androidDeepUrl
+                  } else {
+          window.location = androidStoreUrl
+                    
+                  }
+      } else {
+        return false;
+      }
+    }
 
-
-   setTimeout(() => {
-     window.location.href = IosStoreUrl;
-   }, 700);
-  
+    isAppInstalled();
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
