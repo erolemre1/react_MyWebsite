@@ -27,7 +27,7 @@ const About = () => {
 
     setTimeout(() => {
       window.location.href = IosStoreUrl
-    }, 5000);
+    }, 1000);
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
@@ -41,7 +41,7 @@ const About = () => {
       <head>
         <title>Test</title>
         <meta charset="UTF-8" />
-        <meta name="apple-itunes-app" content="app-id=1551825141" />
+        <meta name="apple-itunes-app" content="app-id=1194656334, app-argument=myURL"/>
     </head>
       {first}
       <a id="myLink" href="emlakjetapp://"
