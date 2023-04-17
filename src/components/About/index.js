@@ -16,17 +16,14 @@ const About = () => {
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-    console.log("navigator.userAgent",navigator)
     window.location = IosDeepUrl
 
    setTimeout(() => {
     // eslint-disable-next-line eqeqeq
-    if (navigator.userAgent.indexOf("Safari") != -1) {
+    if (!navigator.userAgent.toLowerCase().indexOf("chrome") > -1) {
       if (confirm("App Store ile aç")) {
         window.location.href = IosStoreUrl;
-        // Kullanıcı "Tamam" düğmesine tıkladı
       } else {
-        // Kullanıcı "İptal" düğmesine tıkladı
         window.location.reload();
       }
   } else {
