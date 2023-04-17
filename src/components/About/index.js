@@ -18,7 +18,7 @@ const About = () => {
   const openApp = () => {
     window.location = IosDeepUrl
    setTimeout(() => {
-    if (navigator.userAgent.indexOf("Safari") != -1) {
+    if (navigator.userAgent.indexOf("Safari") !== -1) {
       if (confirm("App store Aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
