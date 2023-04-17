@@ -12,33 +12,24 @@ const About = () => {
   const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
-  const handleDeeplinkClick = (url, storeUrl) => {
+ 
+  const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
-    // const appWindow = window.open(url, "_blank")
-
-    document.location = url
-
-    setTimeout(() => {
-      window.location = storeUrl
-    }, 500);
-    // // Check if the app has opened
-    // const checkAppOpened = () => {
-    //   // // Check if the app window is focused
-    //   // if (!appWindow && !appWindow.window && !appWindow.window.focus) {
-    //   //   // The app has opened and the deeplink worked
-    //   //   // Close the app window
-    //   //   window.location.href = appStoreUrl;
-    //   //   console.log('App is not installed');
-    //   // } else {
-    //   //   appWindow.close();
-    //   //   console.log('App is installed');
-    //   //   // The app has not opened yet, or the deeplink failed
-    //   //   // Redirect to the app store
-    //   // }
-    // };
+    window.location.href = url;
   
-    // // Check if the app has opened when the current window loses focus
-    // window.addEventListener('blur', checkAppOpened);
+    // Wait for a short delay before checking if the deeplink worked
+    setTimeout(() => {
+      // Check if the browser was redirected to the app
+      if (document.hidden || document.webkitHidden) {
+        // The app is installed
+        console.log('App is installed');
+      } else {
+        // The app is not installed
+        console.log('App is not installed');
+        // Redirect to the app store
+        window.location.href = appStoreUrl;
+      }
+    }, 100);
   };
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
