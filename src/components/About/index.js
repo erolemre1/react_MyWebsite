@@ -16,7 +16,9 @@ const About = () => {
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
+    console.log("navigator.userAgent",navigator.userAgent)
     window.location = IosDeepUrl
+
    setTimeout(() => {
     if (navigator.userAgent.indexOf("Safari") !== -1) {
       if (confirm("App store Aç")) {
@@ -29,7 +31,7 @@ const About = () => {
   } else {
     window.location.href = IosStoreUrl;
   }
-   }, 100);
+   }, 500);
      
   };
 
