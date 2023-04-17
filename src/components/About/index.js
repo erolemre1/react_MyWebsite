@@ -21,7 +21,7 @@ const About = () => {
 
    setTimeout(() => {
     if (navigator.userAgent.indexOf("Safari") !== -1) {
-      if (confirm("App Store Aç")) {
+      if (confirm("App Store ile aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
       } else {
