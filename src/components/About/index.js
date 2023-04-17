@@ -39,7 +39,7 @@ const About = () => {
         <meta name="apple-itunes-app" content="app-id=1551825141" />
     </head>
       {first}
-      <a href="emlakjetapp://"
+      <a href="#"
         onClick={() => openApp()}
       >
         Open mobile app
