@@ -16,6 +16,7 @@ const About = () => {
   const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
     window.location.href = url;
+   
   
     // Wait for a short delay before checking if the deeplink worked
     setTimeout(() => {
@@ -23,13 +24,14 @@ const About = () => {
       if (document.hidden || document.webkitHidden) {
         // The app is installed
         console.log('App is installed');
+        window.location.href = url;
       } else {
         // The app is not installed
         console.log('App is not installed');
         // Redirect to the app store
         window.location.href = appStoreUrl;
       }
-    }, 100);
+    }, 500);
   };
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
