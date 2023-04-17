@@ -31,6 +31,7 @@ const About = () => {
       window.location.href = url;
     } catch (error) {
       // Hata durumunda yapılacaklar
+      setfirst(error)
       window.location.href = appStoreUrl;
     }
   };
