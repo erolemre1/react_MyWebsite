@@ -30,12 +30,12 @@ const About = () => {
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
 
-    if (isAppInstalled()) {
-      window.location.href = appUrl;
-    } else {
-      window.location.href = storeUrl;
-    }
-    
+    // if (isAppInstalled()) {
+    //   window.location.href = appUrl;
+    // } else {
+    //   window.location.href = storeUrl;
+    // }
+    window.location.href = 'ejapp://';
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
