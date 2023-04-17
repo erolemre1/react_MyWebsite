@@ -44,9 +44,9 @@ const About = () => {
         />
       </head>
       {first}
-      <a id="myLink" href="emlakjetapp://" onClick={() => openApp()}>
+      <button onClick={openApp}>
         Open mobile app
-      </a>
+      </button>
     </div>
   );
 };
