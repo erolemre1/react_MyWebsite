@@ -18,13 +18,17 @@ const About = () => {
   const openApp = () => {
     window.location = IosDeepUrl
    setTimeout(() => {
-    if (confirm("App store Aç")) {
-      window.location.href = IosStoreUrl;
-      // Kullanıcı "Tamam" düğmesine tıkladı
-    } else {
-      // Kullanıcı "İptal" düğmesine tıkladı
-      window.location.reload();
-    }
+    if (navigator.userAgent.indexOf("Safari") != -1) {
+      if (confirm("App store Aç")) {
+        window.location.href = IosStoreUrl;
+        // Kullanıcı "Tamam" düğmesine tıkladı
+      } else {
+        // Kullanıcı "İptal" düğmesine tıkladı
+        window.location.reload();
+      }
+  } else {
+    window.location.href = IosStoreUrl;
+  }
    }, 100);
      
   };
