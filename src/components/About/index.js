@@ -33,9 +33,9 @@ const About = () => {
   //  }, 500);
 
   const ua = navigator.userAgent.toLowerCase();
-const isSafari = ua.indexOf("safari") > -1;
+// const isSafari = ua.indexOf("safari") > -1;
 const isChrome = ua.indexOf("chrome") > -1;
-if (isSafari) {
+if (!isChrome) {
   window.location.href = IosStoreUrl;
 } else if (isChrome) {
   window.location.href = 'www.google.com';
