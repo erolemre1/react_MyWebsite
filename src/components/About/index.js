@@ -8,34 +8,50 @@ const About = () => {
     setfirst(navigator.userAgent)
   }, [])
 
-  // const appUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  // const storeUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
-  // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  // // Kullanıcının cihazında uygulama yüklü mü diye kontrol edin
-  // function isAppInstalled() {
-  //   if (isIOS) {
-  //     // iOS cihazlarında uygulamanın yüklü olup olmadığını kontrol edin
-  //     if (window.location.href.indexOf(appUrl) > -1) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   } else {
-  //     // Diğer cihazlarda uygulamanın yüklü olmadığını varsayın
-  //     return false;
-  //   }
-  // }
+  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
+  const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+  const handleDeeplinkClick = (url, appStoreUrl) => {
+    // Attempt to open the deeplink URL
+    const appWindow = window.open(url, '_blank');
   
+    // Check if the app has opened
+    const checkAppOpened = () => {
+      // Check if the app window is focused
+      if (appWindow && appWindow.window && appWindow.window.focus) {
+        // The app has opened and the deeplink worked
+        console.log('App is installed');
+        // Close the app window
+        appWindow.close();
+      } else {
+        // The app has not opened yet, or the deeplink failed
+        console.log('App is not installed');
+        // Redirect to the app store
+        window.location.href = appStoreUrl;
+      }
+    };
+  
+    // Check if the app has opened when the current window loses focus
+    window.addEventListener('blur', checkAppOpened);
+  };
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
 
-    // if (isAppInstalled()) {
-    //   window.location.href = appUrl;
-    // } else {
-    //   window.location.href = storeUrl;
-    // }
-    window.location.href = 'ejapp://';
+    if (/Android/i.test(navigator.userAgent)) {
+      // Android için deep link
+      handleDeeplinkClick(androidDeepUrl, androidStoreUrl) 
+    } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      // iOS için deep link
+      handleDeeplinkClick(IosDeepUrl, IosStoreUrl) 
+    } else {
+      // Deep link desteklenmeyen cihazlar
+      window.location.href = 'www.google.com';
+    }
+    
+  
+
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
