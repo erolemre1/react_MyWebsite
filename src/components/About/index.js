@@ -20,7 +20,7 @@ const setLink = (deeplink, storeUrl) => {
     // eslint-disable-next-line eqeqeq
     if (navigator.userAgent.toLowerCase().includes('chrome') === false) {
       if (confirm('App Store ile aç')) {
-        window.location.href = deeplink;
+        window.location.href = storeUrl;
       } else {
         window.location.reload();
       }
