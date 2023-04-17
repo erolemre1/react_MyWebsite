@@ -17,8 +17,7 @@ const About = () => {
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
     console.log("navigator.userAgent", navigator);
-    window.location = IosDeepUrl;
-    setTimeout(() => {
+    window.location = IosDeepUrl ? IosDeepUrl : window.location.reload;
       if (confirm("App Store ile aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
@@ -26,7 +25,6 @@ const About = () => {
         // Kullanıcı "İptal" düğmesine tıkladı
         window.location.reload();
       }
-    }, 10);
   };
 
   // if (getMobileOperatingSystem() === "iOS") {
