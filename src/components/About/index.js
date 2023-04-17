@@ -8,7 +8,7 @@ const About = () => {
     setfirst(navigator.userAgent);
   }, []);
 
-  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  // const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl =
     "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
@@ -31,17 +31,17 @@ const About = () => {
   //   window.location.href = IosStoreUrl;
   // }
   //  }, 500);
-     
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(function(registration) {
-      window.location = IosDeepUrl
-    }).catch(function(error) {
-      window.location.href = IosStoreUrl;
-    });
-  } else {
-    console.log('Servis işçileri desteklenmiyor.');
-    window.location = 'www.google.com';
-  }
+
+  const ua = navigator.userAgent.toLowerCase();
+const isSafari = ua.indexOf("safari") > -1;
+const isChrome = ua.indexOf("chrome") > -1;
+if (isSafari) {
+  window.location.href = IosStoreUrl;
+} else if (isChrome) {
+  window.location.href = 'www.google.com';
+  console.log("Chrome kullanılıyor.");
+}
+
 
   };
 
