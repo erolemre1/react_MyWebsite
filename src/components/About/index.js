@@ -40,7 +40,11 @@ const About = () => {
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-    isAppInstalled(IosDeepUrl)
+    if (isAppInstalled(IosDeepUrl)) {
+      window.location.href = IosDeepUrl; // Uygulamayı aç
+    } else {
+      window.location.href = IosStoreUrl; // Store sayfasına yönlendir
+    }
 
   }
 
