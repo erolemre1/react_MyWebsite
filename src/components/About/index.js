@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import "./hstyle.scss";
 
@@ -22,17 +23,14 @@ const About = () => {
 
       window.location.href = myLink.href; // Deep link URL'sine yönlendirin
     });
-
-    setTimeout(() => {
-      // eslint-disable-next-line no-restricted-globals
-      if (confirm("App store Aç")) {
-        window.location.href = IosStoreUrl;
-        // Kullanıcı "Tamam" düğmesine tıkladı
-      } else {
-        // Kullanıcı "İptal" düğmesine tıkladı
-        window.location.reload();
-      }
-    }, 100);
+    if (confirm("App store Aç")) {
+      window.location.href = IosStoreUrl;
+      // Kullanıcı "Tamam" düğmesine tıkladı
+    } else {
+      // Kullanıcı "İptal" düğmesine tıkladı
+      window.location.reload();
+    }
+     
   };
 
   // if (getMobileOperatingSystem() === "iOS") {
