@@ -15,7 +15,7 @@ const About = () => {
   // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
-  // const openApp = () => {
+  const openApp = () => {
   //   console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
   //   window.location = IosDeepUrl
 
@@ -46,6 +46,7 @@ const About = () => {
   }
      
   };
+
 
   // if (getMobileOperatingSystem() === "iOS") {
   //   appLink = "emlakjetapp://";
