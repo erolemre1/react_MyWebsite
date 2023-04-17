@@ -17,6 +17,7 @@ const About = () => {
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
     window.location = IosDeepUrl
+   setTimeout(() => {
     if (confirm("App store Aç")) {
       window.location.href = IosStoreUrl;
       // Kullanıcı "Tamam" düğmesine tıkladı
@@ -24,6 +25,7 @@ const About = () => {
       // Kullanıcı "İptal" düğmesine tıkladı
       window.location.reload();
     }
+   }, 100);
      
   };
 
