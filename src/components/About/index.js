@@ -31,20 +31,18 @@ const About = () => {
   //   window.location.href = IosStoreUrl;
   // }
   //  }, 500);
-
-   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-      if (registrations.length > 0) {
-        window.location = IosDeepUrl
-      } else {
-        window.location.href = IosStoreUrl;
-      }
+     
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(function(registration) {
+      window.location = IosDeepUrl
+    }).catch(function(error) {
+      window.location.href = IosStoreUrl;
     });
   } else {
     console.log('Servis işçileri desteklenmiyor.');
-    window.location.href = 'www.google.com';
+    window.location = 'www.google.com';
   }
-     
+
   };
 
 
