@@ -46,6 +46,11 @@ const About = () => {
 
   return (
     <div className="container" >
+      <head>
+        <title>Test</title>
+        <meta charset="UTF-8" />
+        <meta name="apple-itunes-app" content="app-id=1551825141" />
+    </head>
       {first}
       <button
         onClick={() => {
