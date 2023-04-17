@@ -14,7 +14,7 @@ const About = () => {
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
  
   const handleDeeplinkClick = (url, appStoreUrl) => {
- 
+    window.location.href = url;
     setTimeout(() => {
       // Check if the browser was redirected to the app
       if (document.hidden || document.webkitHidden) {
