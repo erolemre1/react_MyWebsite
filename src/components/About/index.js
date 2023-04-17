@@ -15,7 +15,7 @@ const About = () => {
   // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
-  const openApp = () => {
+  // const openApp = () => {
   //   console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
   //   window.location = IosDeepUrl
 
@@ -31,20 +31,18 @@ const About = () => {
   //   window.location.href = IosStoreUrl;
   // }
   //  }, 500);
-  if ('serviceWorker' in navigator) {
-    console.log('Servis işçileri destekleniyor.');
-  
-    navigator.serviceWorker.getRegistration().then(function(registration) {
-      if (registration) {
-        console.log('Uygulama yüklü.');
-        window.location.href = IosDeepUrl;
+
+   if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      if (registrations.length > 0) {
+        window.location = IosDeepUrl
       } else {
-        console.log('Uygulama yüklü değil.');
         window.location.href = IosStoreUrl;
       }
     });
   } else {
     console.log('Servis işçileri desteklenmiyor.');
+    window.location.href = 'www.google.com';
   }
      
   };
