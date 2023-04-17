@@ -21,7 +21,6 @@ const About = () => {
 
    setTimeout(() => {
     // eslint-disable-next-line eqeqeq
-    if (navigator.userAgent.indexOf("Safari") != -1) {
       if (confirm("App Store ile aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
@@ -29,10 +28,7 @@ const About = () => {
         // Kullanıcı "İptal" düğmesine tıkladı
         window.location.reload();
       }
-  } else {
-    window.location.href = IosStoreUrl;
-  }
-   }, 200);
+   }, 100);
      
   };
 
