@@ -14,19 +14,25 @@ const About = () => {
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
  
   const handleDeeplinkClick = (url, appStoreUrl) => {
-    window.location.href = url;
-    setTimeout(() => {
-      // Check if the browser was redirected to the app
-      if (document.hidden || document.webkitHidden) {
-        // The app is installed
-        window.location.href = appStoreUrl;
-      } else {
-        window.location.href = url || appStoreUrl;
-        // The app is not installed
-        console.log('App is not installed');
-        // Redirect to the app store
-      }
-    }, 500);
+    // window.location.href = url;
+    // setTimeout(() => {
+    //   // Check if the browser was redirected to the app
+    //   if (document.hidden || document.webkitHidden) {
+    //     // The app is installed
+    //     window.location.href = appStoreUrl;
+    //   } else {
+    //     window.location.href = url || appStoreUrl;
+    //     // The app is not installed
+    //     console.log('App is not installed');
+    //     // Redirect to the app store
+    //   }
+    // }, 500);
+    try {
+      window.location.href = url;
+    } catch (error) {
+      // Hata durumunda yapılacaklar
+      window.location.href = appStoreUrl;
+    }
   };
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
