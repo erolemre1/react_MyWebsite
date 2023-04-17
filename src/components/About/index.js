@@ -19,16 +19,13 @@ const About = () => {
     console.log("navigator.userAgent",navigator)
     window.location = IosDeepUrl
 
-   setTimeout(() => {
-    // eslint-disable-next-line eqeqeq
-      if (confirm("App Store ile aç")) {
-        window.location.href = IosStoreUrl;
-        // Kullanıcı "Tamam" düğmesine tıkladı
-      } else {
-        // Kullanıcı "İptal" düğmesine tıkladı
-        window.location.reload();
-      }
-   }, 100);
+    if (confirm("App Store ile aç")) {
+      window.location.href = IosStoreUrl;
+      // Kullanıcı "Tamam" düğmesine tıkladı
+    } else {
+      // Kullanıcı "İptal" düğmesine tıkladı
+      window.location.reload();
+    }
      
   };
 
