@@ -32,7 +32,7 @@ const About = () => {
   } else {
     window.location.href = IosStoreUrl;
   }
-   }, 500);
+   }, 200);
      
   };
 
