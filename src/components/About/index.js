@@ -32,7 +32,7 @@ const About = () => {
         // Kullanıcı "İptal" düğmesine tıkladı
         window.location.reload();
       }
-    }, 1000);
+    }, 100);
   };
 
   // if (getMobileOperatingSystem() === "iOS") {
