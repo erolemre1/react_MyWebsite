@@ -13,50 +13,62 @@ const About = () => {
   const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
  
-  const handleDeeplinkClick = (url, appStoreUrl) => {
-    // Attempt to open the deeplink URL
-    window.location.href = url;
+  // const handleDeeplinkClick = (url, appStoreUrl) => {
+  //   // Attempt to open the deeplink URL
+  //   window.location.href = url;
    
   
-    // Wait for a short delay before checking if the deeplink worked
-    setTimeout(() => {
-      // Check if the browser was redirected to the app
-      if (document.hidden || document.webkitHidden) {
-        // The app is installed
-        console.log('App is installed');
-        window.location.href = url;
-      } else {
-        // The app is not installed
-        console.log('App is not installed');
-        // Redirect to the app store
-        window.location.href = appStoreUrl;
-      }
-    }, 500);
-  };
+  //   // Wait for a short delay before checking if the deeplink worked
+  //   setTimeout(() => {
+  //     // Check if the browser was redirected to the app
+  //     if (document.hidden || document.webkitHidden) {
+  //       // The app is installed
+  //       console.log('App is installed');
+  //       window.location.href = url;
+  //     } else {
+  //       // The app is not installed
+  //       console.log('App is not installed');
+  //       // Redirect to the app store
+  //       window.location.href = appStoreUrl;
+  //     }
+  //   }, 500);
+  // };
   
-  // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
-  const openApp = () => {
+  // // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
+  // const openApp = () => {
 
-    if (/Android/i.test(navigator.userAgent)) {
-      // Android için deep link
-      handleDeeplinkClick(androidDeepUrl, androidStoreUrl) 
-    } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      // iOS için deep link
-      handleDeeplinkClick(IosDeepUrl, IosStoreUrl) 
-    } else {
-      // Deep link desteklenmeyen cihazlar
-      window.location.href = 'www.google.com';
-    }
+  //   if (/Android/i.test(navigator.userAgent)) {
+  //     // Android için deep link
+  //     handleDeeplinkClick(androidDeepUrl, androidStoreUrl) 
+  //   } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  //     // iOS için deep link
+  //     handleDeeplinkClick(IosDeepUrl, IosStoreUrl) 
+  //   } else {
+  //     // Deep link desteklenmeyen cihazlar
+  //     window.location.href = 'www.google.com';
+  //   }
     
   
 
-  }
+  // }
 
 // if (getMobileOperatingSystem() === "iOS") {
 //   appLink = "emlakjetapp://";
 // } else if (getMobileOperatingSystem() === "Android") {
 //   appLink = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 // }
+
+
+function isAppInstalled() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(userAgent)) {
+    return window.location.href = androidStoreUrl;
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    return window.location.href = IosDeepUrl;
+  } else {
+    return window.location.href = IosStoreUrl;
+  }
+}
 
   return (
     <div className="container" >
@@ -67,11 +79,7 @@ const About = () => {
     </head>
       {first}
       <button
-        onClick={() => {
-          setTimeout(() => {
-            openApp();
-          }, 500);
-        }}
+        onClick={() => isAppInstalled()}
       >
         Open mobile app
       </button>
