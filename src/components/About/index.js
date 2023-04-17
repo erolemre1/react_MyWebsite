@@ -16,21 +16,36 @@ const About = () => {
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-    console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
-    window.location = IosDeepUrl
+  //   console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
+  //   window.location = IosDeepUrl
 
-   setTimeout(() => {
-    // eslint-disable-next-line eqeqeq
-    if (navigator.userAgent.toLowerCase().includes("chrome")=== false) {
-      if (confirm("App Store ile aç")) {
-        window.location.href = IosStoreUrl;
+  //  setTimeout(() => {
+  //   // eslint-disable-next-line eqeqeq
+  //   if (navigator.userAgent.toLowerCase().includes("chrome")=== false) {
+  //     if (confirm("App Store ile aç")) {
+  //       window.location.href = IosStoreUrl;
+  //     } else {
+  //       window.location.reload();
+  //     }
+  // } else {
+  //   window.location.href = IosStoreUrl;
+  // }
+  //  }, 500);
+  if ('serviceWorker' in navigator) {
+    console.log('Servis işçileri destekleniyor.');
+  
+    navigator.serviceWorker.getRegistration().then(function(registration) {
+      if (registration) {
+        console.log('Uygulama yüklü.');
+        window.location.href = IosDeepUrl;
       } else {
-        window.location.reload();
+        console.log('Uygulama yüklü değil.');
+        window.location.href = IosStoreUrl;
       }
+    });
   } else {
-    window.location.href = IosStoreUrl;
+    console.log('Servis işçileri desteklenmiyor.');
   }
-   }, 500);
      
   };
 
