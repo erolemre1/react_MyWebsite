@@ -8,7 +8,7 @@ const About = () => {
     setfirst(navigator.userAgent);
   }, []);
 
-  // const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl =
     "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
@@ -17,30 +17,20 @@ const About = () => {
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
   //   console.log("navigator.userAgent",(navigator.userAgent.toLowerCase().includes("chrome"))=== false)
-  //   window.location = IosDeepUrl
+    window.location = IosDeepUrl
 
-  //  setTimeout(() => {
-  //   // eslint-disable-next-line eqeqeq
-  //   if (navigator.userAgent.toLowerCase().includes("chrome")=== false) {
-  //     if (confirm("App Store ile aç")) {
-  //       window.location.href = IosStoreUrl;
-  //     } else {
-  //       window.location.reload();
-  //     }
-  // } else {
-  //   window.location.href = IosStoreUrl;
-  // }
-  //  }, 500);
-
-  const ua = navigator.userAgent.toLowerCase();
-// const isSafari = ua.indexOf("safari") > -1;
-const isChrome = ua.indexOf("chrome") > -1;
-if (!isChrome) {
-  window.location.href = IosStoreUrl;
-} else if (isChrome) {
-  window.location.href = 'www.google.com';
-  console.log("Chrome kullanılıyor.");
-}
+   setTimeout(() => {
+    // eslint-disable-next-line eqeqeq
+    if (navigator.userAgent.toLowerCase().includes("chrome")=== false) {
+      if (confirm("App Store ile aç")) {
+        window.location.href = IosStoreUrl;
+      } else {
+        window.location.reload();
+      }
+  } else {
+    window.location.href = IosStoreUrl;
+  }
+   }, 500);
 
 
   };
