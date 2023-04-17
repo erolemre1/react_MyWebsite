@@ -14,21 +14,21 @@ const About = () => {
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
   const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
-    const appWindow = window.open(url, "myWindow", "width=200,height=100")
+    const appWindow = window.open(url, "_blank")
   
     // Check if the app has opened
     const checkAppOpened = () => {
       // Check if the app window is focused
-      if (appWindow && appWindow.window && appWindow.window.focus) {
+      if (!appWindow && !appWindow.window && !appWindow.window.focus) {
         // The app has opened and the deeplink worked
-        console.log('App is installed');
         // Close the app window
-        appWindow.close();
-      } else {
-        // The app has not opened yet, or the deeplink failed
-        console.log('App is not installed');
-        // Redirect to the app store
         window.location.href = appStoreUrl;
+        console.log('App is not installed');
+      } else {
+        appWindow.close();
+        console.log('App is installed');
+        // The app has not opened yet, or the deeplink failed
+        // Redirect to the app store
       }
     };
   
