@@ -16,12 +16,12 @@ const About = () => {
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-    console.log("navigator.userAgent",navigator.userAgent)
+    console.log("navigator.userAgent",navigator)
     window.location = IosDeepUrl
 
    setTimeout(() => {
     if (navigator.userAgent.indexOf("Safari") !== -1) {
-      if (confirm("App store Aç")) {
+      if (confirm("App Store Aç")) {
         window.location.href = IosStoreUrl;
         // Kullanıcı "Tamam" düğmesine tıkladı
       } else {
