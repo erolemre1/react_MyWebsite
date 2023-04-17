@@ -8,7 +8,7 @@ const About = () => {
     setfirst(navigator.userAgent)
   }, [])
 
-  // const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334"; // Uygulamanızın App Store veya Google Play Store bağlantısı
   // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
@@ -16,11 +16,13 @@ const About = () => {
   
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
   const openApp = () => {
-  setTimeout(() => {
-    
-    window.location.href = IosStoreUrl; // Store sayfasına yönlendir
-  }, 700);
-
+ window.location.href = IosDeepUrl;
+  setTimeout(function() {
+    // uygulama hala açık değilse, uygulama mağazasının sayfasını aç
+    if (document.hidden || document.webkitHidden) {
+      window.location.href = IosStoreUrl;
+    }
+  }, 500);
   }
 
 // if (getMobileOperatingSystem() === "iOS") {
