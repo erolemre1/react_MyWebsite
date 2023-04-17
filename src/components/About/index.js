@@ -21,7 +21,7 @@ const About = () => {
         // The app is installed
         window.location.href = appStoreUrl;
       } else {
-        window.location.href = url;
+        window.location.href = url || appStoreUrl;
         // The app is not installed
         console.log('App is not installed');
         // Redirect to the app store
