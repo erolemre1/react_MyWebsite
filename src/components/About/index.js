@@ -14,7 +14,7 @@ const About = () => {
   const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
   const handleDeeplinkClick = (url, appStoreUrl) => {
     // Attempt to open the deeplink URL
-    const appWindow = window.open(url);
+    const appWindow = window.open(url, "myWindow", "width=200,height=100")
   
     // Check if the app has opened
     const checkAppOpened = () => {
