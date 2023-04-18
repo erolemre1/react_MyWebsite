@@ -33,31 +33,24 @@ const About = () => {
   // };
 
   useEffect(() => {
-    console.log("document122",document.visibilityState)
-    document.addEventListener("visibilitychange", function() {
-      if (document.visibilityState === "visible") {
-        // mobil uygulama kapalı durumda
-        settAppopen(false)
-      } else {
-        // mobil uygulama açık durumda
-        settAppopen(true)
-
-      }
+    window.addEventListener('blur', function() {
+      console.log('Mobil uygulama açık değil');
+    });
+    
+    window.addEventListener('focus', function() {
+      console.log('Mobil uygulama açık');
     });
   }, [])
   
    
    
   const handleOpenApp = () => {
-    if(!appopen){
       window.location.href = IosDeepUrl;
-    }
+
     setTimeout(() => {
-    if (confirm('store ile aç')) {
-          window.location.href = IosStoreUrl; 
-        } else {
-          window.location.reload()
-        }
+      window.addEventListener('blur', function() {
+        window.location.href = IosStoreUrl; 
+      });
       }, 10);
     };
     
