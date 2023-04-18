@@ -6,6 +6,7 @@ import "./hstyle.scss";
 
 const About = () => {
   const [first, setfirst] = useState("asd");
+  const [appopen, settAppopen] = useState("asd")
   useEffect(() => {
     setfirst(navigator.userAgent);
   }, []);
@@ -31,12 +32,26 @@ const About = () => {
   //   }, 10);
   // };
 
+  useEffect(() => {
+    console.log("document122",document.visibilityState)
+    document.addEventListener("visibilitychange", function() {
+      if (document.visibilityState === "visible") {
+        // mobil uygulama kapalı durumda
+        settAppopen(false)
+      } else {
+        // mobil uygulama açık durumda
+        settAppopen(true)
+
+      }
+    });
+  }, [])
+  
    
    
   const handleOpenApp = () => {
-    // Replace with your custom URI scheme
-    window.location.href = IosDeepUrl;
-
+    if(!appopen){
+      window.location.href = IosDeepUrl;
+    }
     setTimeout(() => {
     if (confirm('store ile aç')) {
           window.location.href = IosStoreUrl; 
