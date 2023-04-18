@@ -10,7 +10,7 @@ const About = () => {
     setfirst(navigator.userAgent);
   }, []);
 
-  // const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl =
     "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
@@ -31,39 +31,22 @@ const About = () => {
   //   }, 10);
   // };
 
-    const [appInstalled, setAppInstalled] = useState(false);
    
    
     const handleOpenApp = () => {
       // Replace with your custom URI scheme
       setTimeout(() => {
-        if (!appInstalled && confirm('store ile aç')) {
+        if (confirm('store ile aç')) {
           window.location.href = IosStoreUrl; 
         } else {
           window.location.reload()
         }
-      }, 100);
-      const uriScheme = 'emlakjetapp://';
+      }, 10);
+
   
-      // Attempt to open the app using the custom URI scheme
-        window.location.href = uriScheme;
+        window.location.href = IosDeepUrl;
   
-      // If the app is installed, the page will blur and focus events will be fired
-      const blurTimeout = setTimeout(() => {
-        setAppInstalled(false);
-      }, 1000);
-  
-      window.addEventListener('blur', () => {
-        clearTimeout(blurTimeout);
-        setAppInstalled(true);
-      });
-      window.addEventListener('focus', () => {
-        clearTimeout(blurTimeout);
-        setAppInstalled(true);
-      });
-  
-      // If the app is not installed, redirect to the App Store
-    
+     
     };
     
   
