@@ -1,5 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
+import { isIOS, isMobileSafari } from 'react-device-detect';
+
 import "./hstyle.scss";
 
 const About = () => {
@@ -15,25 +17,35 @@ const About = () => {
   // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
-  const openApp = () => {
-    console.log("navigator.userAgent", navigator);
-    window.location = IosDeepUrl;
-    setTimeout(() => {
-      if (confirm("App Store ile aç")) {
-        window.location.href = IosStoreUrl;
-        // Kullanıcı "Tamam" düğmesine tıkladı
-      } else {
-        // Kullanıcı "İptal" düğmesine tıkladı
-        window.location.reload();
-      }
-    }, 10);
-  };
+  // const openApp = () => {
+  //   console.log("navigator.userAgent", navigator);
+  //   window.location = IosDeepUrl;
+  //   setTimeout(() => {
+  //     if (confirm("App Store ile aç")) {
+  //       window.location.href = IosStoreUrl;
+  //       // Kullanıcı "Tamam" düğmesine tıkladı
+  //     } else {
+  //       // Kullanıcı "İptal" düğmesine tıkladı
+  //       window.location.reload();
+  //     }
+  //   }, 10);
+  // };
 
-  // if (getMobileOperatingSystem() === "iOS") {
-  //   appLink = "emlakjetapp://";
-  // } else if (getMobileOperatingSystem() === "Android") {
-  //   appLink = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
-  // }
+    const openApp = () => {
+      // Replace with your custom URI scheme
+      const uriScheme = IosDeepUrl;
+  
+      // Attempt to open the app using the custom URI scheme
+      window.location.href = uriScheme;
+  
+      // If the app is not installed, redirect to the App Store
+      setTimeout(() => {
+        if (!document.webkitHidden && isIOS && isMobileSafari) {
+          window.location.href = IosStoreUrl;
+        }
+      }, 500);
+    };
+  
 
   return (
     <div className="container">
@@ -46,7 +58,7 @@ const About = () => {
         />
       </head>
       {first}
-      <button onClick={() => openApp()}>Open mobile app</button>
+      <button onClick={openApp}>Open mobile app</button>
     </div>
   );
 };
