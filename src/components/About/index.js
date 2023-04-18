@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
-import { isIOS, isMobileSafari } from 'react-device-detect';
+import {  isMobileSafari } from 'react-device-detect';
 
 import "./hstyle.scss";
 
