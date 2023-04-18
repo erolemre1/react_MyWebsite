@@ -33,20 +33,16 @@ const About = () => {
 
    
    
-    const handleOpenApp = () => {
-      // Replace with your custom URI scheme
-      setTimeout(() => {
-        if (confirm('store ile aç')) {
+  const handleOpenApp = () => {
+    // Replace with your custom URI scheme
+    window.location.href = IosDeepUrl;
+    if (confirm('store ile aç')) {
+        setTimeout(() => {
           window.location.href = IosStoreUrl; 
+        }, 10);
         } else {
           window.location.reload()
         }
-      }, 10);
-
-  
-        window.location.href = IosDeepUrl;
-  
-     
     };
     
   
