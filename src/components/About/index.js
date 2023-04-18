@@ -40,7 +40,8 @@ const About = () => {
   //     setTimeout(() => {
   //       window.location.href = IosStoreUrl; 
   //     }, 500);
-      
+      console.log("/Mobi/.test(navigator.userAgent)",/Mobi/.test(navigator.userAgent))
+      console.log("/Mobi/.test(navigator",navigator.userAgent)
 
 let change = false;
 setTimeout(() => {
@@ -48,7 +49,7 @@ setTimeout(() => {
     const redirectUrl = IosStoreUrl;
     window.location = redirectUrl;
   }
-}, 2000);
+}, 3000);
 window.location = IosDeepUrl;
 //handle event to check app installed or not
 window.onblur = function () {
