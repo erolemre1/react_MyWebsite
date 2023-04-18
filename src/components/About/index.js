@@ -35,12 +35,28 @@ const About = () => {
   const handleOpenApp = () => {
 
 
-  document.location = 'emlakjetapp://post_detail?id=123123';
+  // document.location = 'emlakjetapp://post_detail?id=123123';
 
-      setTimeout(() => {
-        window.location.href = IosStoreUrl; 
-      }, 500);
+  //     setTimeout(() => {
+  //       window.location.href = IosStoreUrl; 
+  //     }, 500);
       
+
+let change = false;
+setTimeout(() => {
+  if (!change) {
+    const redirectUrl = IosStoreUrl;
+    window.location = redirectUrl;
+  }
+}, 3000);
+window.location = IosDeepUrl;
+//handle event to check app installed or not
+window.onblur = function () {
+    change = true;
+};
+window.onfocus = function(){
+    change = false;
+}
     };
 
 
