@@ -48,7 +48,6 @@ const About = () => {
 
     setTimeout(() => {
       window.addEventListener('focus', function() {
-        window.location.href = IosDeepUrl;
         window.location.href = IosStoreUrl; 
       });
       }, 10);
