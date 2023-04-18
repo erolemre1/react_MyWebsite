@@ -31,28 +31,15 @@ const About = () => {
   //   }, 10);
   // };
 
-  useEffect(() => {
-    window.addEventListener('blur', function() {
-      console.log('Mobil uygulama açık değil');
-    });
-    
-    window.addEventListener('focus', function() {
-      console.log('Mobil uygulama açık');
-    });
-  }, [])
-  
-   
    
   const handleOpenApp = () => {
       window.location.href = IosDeepUrl;
 
-    setTimeout(() => {
       if(confirm('app store ile aç')){
         window.location.href = IosStoreUrl; 
       }else {
         window.location.reload();
       }
-      }, 10);
     };
     
   
