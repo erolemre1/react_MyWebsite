@@ -47,9 +47,11 @@ const About = () => {
       window.location.href = IosDeepUrl;
 
     setTimeout(() => {
-      window.addEventListener('focus', function() {
+      if(confirm('app store ile aç')){
         window.location.href = IosStoreUrl; 
-      });
+      }else {
+        window.location.reload();
+      }
       }, 10);
     };
     
