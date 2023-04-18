@@ -12,8 +12,7 @@ const About = () => {
 
   const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
-  const IosStoreUrl =
-    "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
+  const IosStoreUrl = "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
   // const androidStoreUrl = "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
   // Kullanıcının cihazında uygulama yüklüyse uygulamayı açın, değilse uygulama mağazasına yönlendirin
@@ -68,10 +67,6 @@ const About = () => {
 
     {isMobileSafari ? 'safariii' : 'chrome'}
       </p>
-
-      
-
-
 
       
       {first}
