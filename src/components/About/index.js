@@ -33,54 +33,36 @@ const About = () => {
 
     const [appInstalled, setAppInstalled] = useState(false);
    
-    useEffect(() => {
-      const checkAppInstalled = () => {
-        // Replace with your custom URI scheme
-        const uriScheme = 'emlakjetapp://';
+   
+    const handleOpenApp = () => {
+      // Replace with your custom URI scheme
+      const uriScheme = 'emlakjetapp://';
   
-        // Attempt to open the app using the custom URI scheme
-        window.location.href = uriScheme;
+      // Attempt to open the app using the custom URI scheme
+      window.location.href = uriScheme;
   
-        // If the app is installed, the page will blur and focus events will be fired
-        const blurTimeout = setTimeout(() => {
-          setAppInstalled(false);
-        }, 1000);
+      // If the app is installed, the page will blur and focus events will be fired
+      const blurTimeout = setTimeout(() => {
+        setAppInstalled(false);
+      }, 1000);
   
-        window.addEventListener('blur', () => {
-          clearTimeout(blurTimeout);
-          setAppInstalled(true);
-        });
-        window.addEventListener('focus', () => {
-          clearTimeout(blurTimeout);
-          setAppInstalled(true);
-        });
-      };
-  
-      // Check if the app is already installed
-      if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.match(/AppleWebKit/g)) {
-        checkAppInstalled();
-      } else {
+      window.addEventListener('blur', () => {
+        clearTimeout(blurTimeout);
         setAppInstalled(true);
-      }
-    }, []);
-
-
-     
-  const handleOpenApp = () => {
-    // Replace with your custom URI scheme
-    const uriScheme = 'emlakjetapp://';
-
-    // Attempt to open the app using the custom URI scheme
-    window.location.href = uriScheme;
-
-    // If the app is not installed, redirect to the App Store
-    setTimeout(() => {
-      if (!appInstalled) {
-        window.location.href = IosStoreUrl;
-      }
-    }, 500);
-  };
-
+      });
+      window.addEventListener('focus', () => {
+        clearTimeout(blurTimeout);
+        setAppInstalled(true);
+      });
+  
+      // If the app is not installed, redirect to the App Store
+      setTimeout(() => {
+        if (!appInstalled) {
+          window.location.href = IosStoreUrl;
+        }
+      }, 500);
+    };
+    
   
 
   return (
