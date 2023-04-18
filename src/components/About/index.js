@@ -39,7 +39,7 @@ const About = () => {
         if (confirm('Open in App store')) {
           window.location.href = IosStoreUrl;
         }
-      }, 100);
+      }, 10);
     };
   
 
