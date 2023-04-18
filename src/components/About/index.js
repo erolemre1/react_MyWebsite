@@ -39,7 +39,7 @@ const About = () => {
       const uriScheme = 'emlakjetapp://';
   
       // Attempt to open the app using the custom URI scheme
-      window.location.href = uriScheme;
+        window.location.href = uriScheme;
   
       // If the app is installed, the page will blur and focus events will be fired
       const blurTimeout = setTimeout(() => {
@@ -60,7 +60,7 @@ const About = () => {
         if (!appInstalled) {
           window.location.href = IosStoreUrl;
         }
-      }, 500);
+      }, 100);
     };
     
   
