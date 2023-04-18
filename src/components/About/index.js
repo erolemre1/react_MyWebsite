@@ -32,18 +32,14 @@ const About = () => {
   // };
 
     const openApp = () => {
-      // Replace with your custom URI scheme
-      const uriScheme = IosDeepUrl;
   
-      // Attempt to open the app using the custom URI scheme
-      window.location.href = uriScheme;
+      window.location.href = IosDeepUrl;
   
-      // If the app is not installed, redirect to the App Store
       setTimeout(() => {
-        if (!document.webkitHidden && isIOS && isMobileSafari) {
+        if (confirm('Open in App store')) {
           window.location.href = IosStoreUrl;
         }
-      }, 500);
+      }, 100);
     };
   
 
