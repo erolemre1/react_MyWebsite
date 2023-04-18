@@ -36,6 +36,13 @@ const About = () => {
    
     const handleOpenApp = () => {
       // Replace with your custom URI scheme
+      setTimeout(() => {
+        if (!appInstalled && confirm('store ile aç')) {
+          window.location.href = IosStoreUrl; 
+        } else {
+          window.location.reload()
+        }
+      }, 100);
       const uriScheme = 'emlakjetapp://';
   
       // Attempt to open the app using the custom URI scheme
@@ -56,13 +63,7 @@ const About = () => {
       });
   
       // If the app is not installed, redirect to the App Store
-      setTimeout(() => {
-        if (!appInstalled && confirm('store ile aç')) {
-          window.location.href = IosStoreUrl; 
-        } else {
-          window.location.reload()
-        }
-      }, 100);
+    
     };
     
   
