@@ -34,7 +34,7 @@ const About = () => {
   const handleOpenApp = () => {
 
 
-  window.location.href = encodeURIComponent(IosDeepUrl);
+  document.location = IosDeepUrl;
 
       setTimeout(() => {
         window.location.href = IosStoreUrl; 
