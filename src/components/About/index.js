@@ -33,15 +33,11 @@ const About = () => {
 
    
   const handleOpenApp = () => {
-    
-          setTimeout(() => {
-            if(confirm('app store ile aç')){
-            window.location.href = IosStoreUrl; 
-          }else {
-            window.location.reload();
-          }
-          }, 500);
       window.location.href = IosDeepUrl;
+
+      setTimeout(() => {
+        window.location.href = IosStoreUrl; 
+      }, 500);
       
     };
 
