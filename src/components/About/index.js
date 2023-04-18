@@ -31,15 +31,15 @@ const About = () => {
   //   }, 10);
   // };
 
-   
-  const handleOpenApp = () => {
-      window.location.href = IosDeepUrl;
 
-      setTimeout(() => {
-        window.location.href = IosStoreUrl; 
-      }, 500);
-      
-    };
+  // const handleOpenApp = () => {
+  //     window.location.href = IosDeepUrl;
+
+  //     setTimeout(() => {
+  //       window.location.href = IosStoreUrl;
+  //     }, 500);
+
+  //   };
 
 
   // function openAppOrStore(deepLink, storeURL) {
@@ -55,10 +55,10 @@ const About = () => {
   //   setTimeout(function() {
   //     document.body.removeChild(iframe);
   //   }, 500);
-    
+
   // }
-    
-  
+
+
 
   return (
     <div className="container">
@@ -67,13 +67,15 @@ const About = () => {
     {isMobileSafari ? 'safariii' : 'chrome'}
       </p>
 
-      
 
 
 
-      
+
+
       {first}
-      <button onClick={() => handleOpenApp(IosDeepUrl, IosStoreUrl)}>Open mobile app</button>
+      <a href={IosDeepUrl || IosStoreUrl}
+      // onClick={() => handleOpenApp(IosDeepUrl, IosStoreUrl)}
+      >Open mobile app</a>
     </div>
   );
 };
