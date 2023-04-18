@@ -32,18 +32,34 @@ const About = () => {
   // };
 
    
-  const handleOpenApp = () => {
-      window.location.href = IosDeepUrl;
+  // const handleOpenApp = () => {
+  //     window.location.href = IosDeepUrl;
 
-      setTimeout(() => {
+  //     setTimeout(() => {
         
-        window.location.href = IosStoreUrl; 
-      }, 800);
-      // if(confirm('app store ile aç')){
-      // }else {
-      //   window.location.reload();
-      // }
-    };
+  //       window.location.href = IosStoreUrl; 
+  //     }, 800);
+  //     // if(confirm('app store ile aç')){
+  //     // }else {
+  //     //   window.location.reload();
+  //     // }
+  //   };
+
+
+  function openAppOrStore(deepLink, storeURL) {
+    const iframe = document.createElement('iframe');
+    iframe.onload = function() {
+      document.location = deepLink;
+    }
+    iframe.onerror = function() {
+      document.location = storeURL;
+    }
+    iframe.setAttribute('src', deepLink);
+    document.body.appendChild(iframe);
+    setTimeout(function() {
+      document.body.removeChild(iframe);
+    }, 500);
+  }
     
   
 
@@ -60,7 +76,7 @@ const About = () => {
 
       
       {first}
-      <button onClick={handleOpenApp}>Open mobile app</button>
+      <button onClick={() => openAppOrStore(IosDeepUrl, IosStoreUrl)}>Open mobile app</button>
     </div>
   );
 };
