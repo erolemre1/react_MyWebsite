@@ -10,7 +10,7 @@ const About = () => {
     setfirst(navigator.userAgent);
   }, []);
 
-  const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
+  // const IosDeepUrl = "emlakjetapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   // const androidDeepUrl = "ejapp://"; // Uygulamanız için belirlediğiniz özel URL şeması
   const IosStoreUrl =
     "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr"; // Uygulamanızın App Store veya Google Play Store bağlantısı
@@ -31,21 +31,71 @@ const About = () => {
   //   }, 10);
   // };
 
-    const openApp = () => {
+    const [appInstalled, setAppInstalled] = useState(false);
   
-      window.location.href = IosDeepUrl;
+    useEffect(() => {
+      const checkAppInstalled = () => {
+        // Replace with your custom URI scheme
+        const uriScheme = 'myapp://';
   
+        const appInstalledTimeout = setTimeout(() => {
+          setAppInstalled(false);
+        }, 1000);
+  
+        // Try to open the app with the URI scheme
+        window.location.href = uriScheme;
+  
+        // Listen for app activation events
+        window.addEventListener('pagehide', () => {
+          clearTimeout(appInstalledTimeout);
+          setAppInstalled(true);
+        });
+        window.addEventListener('pageshow', () => {
+          clearTimeout(appInstalledTimeout);
+          setAppInstalled(true);
+        });
+      };
+
+      // Check if the app is already installed
+      if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.match(/AppleWebKit/g)) {
+        checkAppInstalled();
+      } else {
+        setAppInstalled(true);
+      }
+    }, []);
+  
+
+    const handleOpenApp = () => {
+      // Replace with your custom URI scheme
+      const uriScheme = 'emlakjetapp://';
+  
+      // Attempt to open the app using the custom URI scheme
+      window.location.href = uriScheme;
+  
+      // If the app is not installed, redirect to the App Store
       setTimeout(() => {
+        if (!appInstalled) {
           window.location.href = IosStoreUrl;
-      }, 10);
+        }
+      }, 500);
     };
+  
   
 
   return (
     <div className="container">
-      {isMobileSafari ? 'safariii' : 'chrome'}
+     <p>
+
+    {isMobileSafari ? 'safariii' : 'chrome'}
+      </p>
+
+      
+
+
+
+      
       {first}
-      <button onClick={openApp}>Open mobile app</button>
+      <button onClick={handleOpenApp}>Open mobile app</button>
     </div>
   );
 };
