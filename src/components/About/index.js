@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import {  isMobileSafari } from 'react-device-detect';
-import { useRouter } from 'next/router'
 
 import "./hstyle.scss";
 
