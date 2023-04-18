@@ -57,8 +57,10 @@ const About = () => {
   
       // If the app is not installed, redirect to the App Store
       setTimeout(() => {
-        if (!appInstalled) {
-          window.location.href = IosStoreUrl;
+        if (!appInstalled && confirm('store ile aç')) {
+          window.location.href = IosStoreUrl; 
+        } else {
+          window.location.reload()
         }
       }, 100);
     };
