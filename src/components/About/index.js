@@ -36,7 +36,7 @@ const About = () => {
     useEffect(() => {
       const checkAppInstalled = () => {
         // Replace with your custom URI scheme
-        const uriScheme = 'myapp://';
+        const uriScheme = 'emlakjetapp://';
   
         const appInstalledTimeout = setTimeout(() => {
           setAppInstalled(false);
