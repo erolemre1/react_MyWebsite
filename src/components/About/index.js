@@ -48,7 +48,7 @@ setTimeout(() => {
     const redirectUrl = IosStoreUrl;
     window.location = redirectUrl;
   }
-}, 1000);
+}, 2000);
 window.location = IosDeepUrl;
 //handle event to check app installed or not
 window.onblur = function () {
