@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from "react";
 import {  isMobileSafari } from 'react-device-detect';
+import { useRouter } from 'next/router'
 
 import "./hstyle.scss";
 
@@ -31,15 +32,17 @@ const About = () => {
   //   }, 10);
   // };
 
+   
+  const handleOpenApp = () => {
 
-  // const handleOpenApp = () => {
-  //     window.location.href = IosDeepUrl;
 
-  //     setTimeout(() => {
-  //       window.location.href = IosStoreUrl;
-  //     }, 500);
+  window.location.href = encodeURIComponent(IosDeepUrl);
 
-  //   };
+      setTimeout(() => {
+        window.location.href = IosStoreUrl; 
+      }, 500);
+      
+    };
 
 
   // function openAppOrStore(deepLink, storeURL) {
@@ -55,10 +58,10 @@ const About = () => {
   //   setTimeout(function() {
   //     document.body.removeChild(iframe);
   //   }, 500);
-
+    
   // }
-
-
+    
+  
 
   return (
     <div className="container">
@@ -67,15 +70,13 @@ const About = () => {
     {isMobileSafari ? 'safariii' : 'chrome'}
       </p>
 
+      
 
 
 
-
-
+      
       {first}
-      <a href={IosDeepUrl || IosStoreUrl}
-      // onClick={() => handleOpenApp(IosDeepUrl, IosStoreUrl)}
-      >Open mobile app</a>
+      <button onClick={() => handleOpenApp(IosDeepUrl, IosStoreUrl)}>Open mobile app</button>
     </div>
   );
 };
