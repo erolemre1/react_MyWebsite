@@ -36,9 +36,7 @@ const About = () => {
       window.location.href = IosDeepUrl;
   
       setTimeout(() => {
-        if (confirm('Open in App store')) {
           window.location.href = IosStoreUrl;
-        }
       }, 10);
     };
   
