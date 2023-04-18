@@ -30,7 +30,8 @@ const About = () => {
   //     }
   //   }, 10);
   // };
-
+  const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1
+   
    
   const handleOpenApp = () => {
 
@@ -50,6 +51,7 @@ setTimeout(() => {
 
     {isMobileSafari ? 'safariii' : 'chrome'}
       </p>
+    <p>{isChrome ? "criosss" : "safffffaarii"}</p>
 
       
       {first}
