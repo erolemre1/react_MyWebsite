@@ -32,30 +32,30 @@ const About = () => {
   // };
 
     const [appInstalled, setAppInstalled] = useState(false);
-  
+   
     useEffect(() => {
       const checkAppInstalled = () => {
         // Replace with your custom URI scheme
         const uriScheme = 'emlakjetapp://';
   
-        const appInstalledTimeout = setTimeout(() => {
+        // Attempt to open the app using the custom URI scheme
+        window.location.href = uriScheme;
+  
+        // If the app is installed, the page will blur and focus events will be fired
+        const blurTimeout = setTimeout(() => {
           setAppInstalled(false);
         }, 1000);
   
-        // Try to open the app with the URI scheme
-        window.location.href = uriScheme;
-  
-        // Listen for app activation events
-        window.addEventListener('pagehide', () => {
-          clearTimeout(appInstalledTimeout);
+        window.addEventListener('blur', () => {
+          clearTimeout(blurTimeout);
           setAppInstalled(true);
         });
-        window.addEventListener('pageshow', () => {
-          clearTimeout(appInstalledTimeout);
+        window.addEventListener('focus', () => {
+          clearTimeout(blurTimeout);
           setAppInstalled(true);
         });
       };
-
+  
       // Check if the app is already installed
       if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && navigator.userAgent.match(/AppleWebKit/g)) {
         checkAppInstalled();
@@ -63,23 +63,24 @@ const About = () => {
         setAppInstalled(true);
       }
     }, []);
-  
 
-    const handleOpenApp = () => {
-      // Replace with your custom URI scheme
-      const uriScheme = 'emlakjetapp://';
-  
-      // Attempt to open the app using the custom URI scheme
-      window.location.href = uriScheme;
-  
-      // If the app is not installed, redirect to the App Store
-      setTimeout(() => {
-        if (!appInstalled) {
-          window.location.href = IosStoreUrl;
-        }
-      }, 500);
-    };
-  
+
+     
+  const handleOpenApp = () => {
+    // Replace with your custom URI scheme
+    const uriScheme = 'emlakjetapp://';
+
+    // Attempt to open the app using the custom URI scheme
+    window.location.href = uriScheme;
+
+    // If the app is not installed, redirect to the App Store
+    setTimeout(() => {
+      if (!appInstalled) {
+        window.location.href = IosStoreUrl;
+      }
+    }, 500);
+  };
+
   
 
   return (
