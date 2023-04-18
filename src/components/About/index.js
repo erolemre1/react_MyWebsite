@@ -35,11 +35,11 @@ const About = () => {
   const handleOpenApp = () => {
       window.location.href = IosDeepUrl;
 
-      if(confirm('app store ile aç')){
-        window.location.href = IosStoreUrl; 
-      }else {
-        window.location.reload();
-      }
+      window.location.href = IosStoreUrl; 
+      // if(confirm('app store ile aç')){
+      // }else {
+      //   window.location.reload();
+      // }
     };
     
   
