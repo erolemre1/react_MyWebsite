@@ -34,7 +34,7 @@ const About = () => {
   const handleOpenApp = () => {
 
 
-  document.location = IosDeepUrl;
+  document.location = 'emlakjetapp://post_detail?id=123123';
 
       setTimeout(() => {
         window.location.href = IosStoreUrl; 
