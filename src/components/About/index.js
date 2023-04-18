@@ -48,17 +48,20 @@ const About = () => {
 
   function openAppOrStore(deepLink, storeURL) {
     const iframe = document.createElement('iframe');
-    iframe.onload = function() {
-      document.location = deepLink;
+    iframe.setAttribute('src', deepLink);
+    iframe.onload = function(res) {
+      window.location = deepLink;
     }
     iframe.onerror = function() {
-      document.location = storeURL;
+      window.location = storeURL;
     }
-    iframe.setAttribute('src', deepLink);
     document.body.appendChild(iframe);
-    setTimeout(function() {
-      document.body.removeChild(iframe);
-    }, 500);
+    // setTimeout(function() {
+    //   document.body.removeChild(iframe);
+    // }, 500);
+    // setTimeout(function() {
+    //   window.location = storeURL;
+    // }, 800);
   }
     
   
