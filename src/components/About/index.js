@@ -6,7 +6,6 @@ import "./hstyle.scss";
 
 const About = () => {
   const [first, setfirst] = useState("asd");
-  const [appopen, settAppopen] = useState("asd")
   useEffect(() => {
     setfirst(navigator.userAgent);
   }, []);
