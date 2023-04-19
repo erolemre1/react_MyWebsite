@@ -1,52 +1,26 @@
-/* eslint-disable no-restricted-globals */
-import React, { useEffect, useState } from "react";
-
-import "./hstyle.scss";
+import './hstyle.scss'
+import Imgg from "./me.jpeg"
 
 const About = () => {
-  const [first, setfirst] = useState("asd");
-  useEffect(() => {
-    setfirst(navigator.userAgent);
-  }, []);
-  // emlakjet apps deeplinks
-  const IosDeepLink = 'emlakjetapp://';
-  const androidDeepLink = 'ejapp://';
-  const IosStoreUrl = 'https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr';
-  const androidStoreUrl = 'intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end';
-
-  const setLink = (deeplink, storeUrl) => {
-    const isChrome = navigator.userAgent.toLowerCase().indexOf('crios') > -1;
-    if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
-      window.location = deeplink;
-    }
-    setTimeout(() => {
-      window.location.href = storeUrl;
-    }, 500);
-  };
-
-  const openApp = () => {
-    if (/android/i.test(navigator.userAgent)) {
-      setLink(androidDeepLink, androidStoreUrl);
-    } else if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      setLink(IosDeepLink, IosStoreUrl);
-    }
-  };
-
-  // const closeBanner = () => {
-  //   const now = new Date().getTime();
-  //   localStorage.setItem('smartBannerTime', JSON.stringify(now));
-  // };
-
-
   return (
-    <div className="container">
-
-      {first}
-      <button onClick={() => openApp()}>
-        Open mobile app
-      </button>
+    <div className="container" >
+      <div className="imgdiv">
+        <img src={Imgg} alt="" />
+        <h2 className="heading-big">Erol Emre Güleç</h2>
+        <p className="p1">| Front End Developer |</p>
+      </div>
+      <p>  Tokat Gaziosmanpaşa üniversitesinden 3,01 not ortalaması ile 2020 yılında mezun oldum
+        üniversitede c# ve unity ile yazılım ile tanışmış ve ilk oyunumu yapmıştım.
+        Üniversiteden mezun olduktan sonra yazılıma bir süre ara verdim ve farklı alanlar
+        üzerine çalışmaya başladım ama düşüncelerimde her zaman yazılım
+        vardı bir süre farklı alanlarda çalıştıktan sonra Web tasarım ve mobil uygulamalar ilgimi
+        çekmeye başladı ve react-native ile mobil projeler geliştirmeye başladım. Mobil uygulamalar yapıyordum ama bunların
+        web tarafıda olmalıydı bu sebebten dolayı web tasarım tarafınıda öğrenmek istiyordum ilk olarak html,css ve JavaScript
+        ile ilgili udemyden kurslar alarak front-end geliştirmeler yaptım.Şu anda ise react ile web ve mobil uygulamalar
+        üzerine çalışmaktayım kariyer hedeflerimde bu alan üzerine yoğunlaşmak ve uzmanlaşmaktır.</p>
+      <hr />
     </div>
-  );
+  )
 };
 
 export default About;
