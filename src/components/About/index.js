@@ -16,7 +16,7 @@ const setLink = (deeplink, storeUrl) => {
     window.location = deeplink;
   }
   setTimeout(() => {
-    window.location.href = storeUrl;
+    // window.location.href = storeUrl;
   }, 500);
 };
 
