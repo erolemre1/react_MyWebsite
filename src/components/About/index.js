@@ -12,16 +12,13 @@ const androidStoreUrl =
 
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
-  const userAgent = navigator.userAgent.toLowerCase();
-  if(userAgent.indexOf('firefox') > -1){
-    window.location = deeplink;
+  window.location = deeplink;
 
-  }
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
   setTimeout(() => {
-    window.location.href = storeUrl;
+    // window.location.href = storeUrl;
   }, 500);
 };
 
