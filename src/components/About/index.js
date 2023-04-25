@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { isMobileSafari } from 'react-device-detect';
+// import { isMobileSafari } from 'react-device-detect';
 
 import "./hstyle.scss";
 // import Imgg from "./me.jpeg"
