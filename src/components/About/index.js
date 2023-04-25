@@ -18,8 +18,6 @@ const setLink = (deeplink, storeUrl) => {
   if(!isSafari){
     window.location = deeplink;
 }
-  window.location = deeplink;
-
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
