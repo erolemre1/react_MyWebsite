@@ -18,17 +18,16 @@ const setLink = (deeplink, storeUrl) => {
 //   if(!isSafari){
 //     window.location = deeplink;
 // }
+window.location.href = deeplink
 
-if (window.location.href.indexOf("emlakjetapp://") === -1) {
-  window.location.href = storeUrl;
-} else {
-    window.location.href = deeplink
-}
+
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
   setTimeout(() => {
-    // window.location.href = storeUrl;
+    if (window.location.href.indexOf("emlakjetapp://") === -1) {
+  window.location.href = storeUrl;
+} 
   }, 500);
 };
 
