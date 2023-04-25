@@ -11,10 +11,12 @@ const androidStoreUrl =
   "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
 const setLink = (deeplink, storeUrl) => {
-  const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
-  if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
-    window.location = deeplink;
-  }
+  // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
+  window.location = deeplink;
+
+  // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
+  //   window.location = deeplink;
+  // }
   setTimeout(() => {
     // window.location.href = storeUrl;
   }, 500);
