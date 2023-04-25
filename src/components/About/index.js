@@ -14,8 +14,9 @@ const androidStoreUrl =
 
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
-  if(!isMobileSafari){
-    window.location.href = deeplink;
+  const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
+  if(!isSafari){
+    window.location = deeplink;
 }
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
