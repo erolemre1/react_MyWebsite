@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { isMobileSafari } from 'react-device-detect';
+
 import "./hstyle.scss";
 // import Imgg from "./me.jpeg"
 
@@ -12,13 +14,14 @@ const androidStoreUrl =
 
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
-  window.location = deeplink;
-
+  if(!isMobileSafari){
+    window.location = deeplink;
+}
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
   setTimeout(() => {
-    // window.location.href = storeUrl;
+    window.location.href = storeUrl;
   }, 500);
 };
 
