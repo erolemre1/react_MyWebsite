@@ -13,7 +13,7 @@ const androidStoreUrl =
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
   const userAgent = navigator.userAgent.toLowerCase();
-  if(userAgent.indexOf('chrome') > -1 || userAgent.indexOf('firefox') > -1){
+  if(userAgent.indexOf('firefox') > -1){
     window.location = deeplink;
 
   }
