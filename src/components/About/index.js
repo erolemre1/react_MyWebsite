@@ -20,9 +20,9 @@ const setLink = (deeplink, storeUrl) => {
 //     window.location = deeplink;
 // }
 
-if(deeplink !== androidDeepLink){
-  window.location = deeplink;
-}
+// if(deeplink !== androidDeepLink){
+//   window.location = deeplink;
+// }
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
