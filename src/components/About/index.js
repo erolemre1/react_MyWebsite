@@ -15,11 +15,14 @@ const androidStoreUrl =
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
   const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
-  const isSafariAndroid = navigator.userAgent.indexOf("Chrome") === -1 && navigator.userAgent.indexOf("Version") !== -1;
-  if(!isSafari || (deeplink === androidDeepLink && !isSafariAndroid)){
-    window.location = deeplink;
-}
+  // const isSafariAndroid = navigator.userAgent.indexOf("Chrome") === -1 && navigator.userAgent.indexOf("Version") !== -1;
+//   if(!isSafari || (deeplink === androidDeepLink && !isSafariAndroid)){
+//     window.location = deeplink;
+// }
 
+if(deeplink !== androidDeepLink){
+  window.location = deeplink;
+}
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
   //   window.location = deeplink;
   // }
