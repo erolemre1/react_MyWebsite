@@ -17,7 +17,7 @@ const setLink = (deeplink, storeUrl) => {
   
   // ios sorunları okey
   const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
-  if(!isSafari || (!isFirefox && deeplink === androidDeepLink)){
+  if((!isSafari && deeplink !== androidDeepLink) || (!isFirefox && deeplink === androidDeepLink)){
     window.location = deeplink;
 }
 
