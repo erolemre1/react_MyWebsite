@@ -16,17 +16,11 @@ const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
   
   //ios sorunları okey
-  // const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
-//   if(!isSafari){
-//     window.location = deeplink;
-// }
-
-if(/chrome/i.test(navigator.userAgent)){
-  window.location = deeplink;
+  const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
+  if(!isSafari){
+    window.location = deeplink;
 }
-  // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
-  //   window.location = deeplink;
-  // }
+
   setTimeout(() => {
   window.location.href = storeUrl;
   }, 500);
