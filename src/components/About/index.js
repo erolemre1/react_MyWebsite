@@ -8,9 +8,9 @@ import "./hstyle.scss";
 const IosDeepLink = "emlakjetapp://";
 const androidDeepLink = "ejapp://";
 const IosStoreUrl =
-  "https://play.google.com/store/apps/details?id=com.emlakjet.kurumsal.sekizbit&hl=tr";
+  "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr";
 const androidStoreUrl =
-  "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
+  "https://play.google.com/store/apps/details?id=com.emlakjet.kurumsal.sekizbit&hl=tr";
 
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
