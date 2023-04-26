@@ -13,13 +13,13 @@ const androidStoreUrl =
   "https://play.google.com/store/apps/details?id=com.emlakjet.kurumsal.sekizbit&hl=tr";
 
 const setLink = (deeplink, storeUrl) => {
-  // const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
   
-  //ios sorunları okey
-//   const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
-//   if(!isSafari || (!isFirefox && deeplink === androidDeepLink)){
-//     window.location = deeplink;
-// }
+  // ios sorunları okey
+  const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
+  if(!isSafari || (!isFirefox && deeplink === androidDeepLink)){
+    window.location = deeplink;
+}
 
   setTimeout(() => {
   window.location.href = storeUrl;
