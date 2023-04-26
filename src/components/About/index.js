@@ -10,17 +10,18 @@ const androidDeepLink = "ejapp://";
 const IosStoreUrl =
   "https://apps.apple.com/tr/app/emlakjet-emlak-ara-i-lan-ver/id1194656334?l=tr";
 const androidStoreUrl =
-  "https://play.google.com/store/apps/details?id=com.emlakjet.kurumsal.sekizbit&hl=tr";
+  "intent://android_app/#Intent;scheme=android_app;package=com.emlakjet.kurumsal.sekizbit;end";
 
 const setLink = (deeplink, storeUrl) => {
   // const isChrome = navigator.userAgent.toLowerCase().indexOf("crios") > -1;
+  
+  //ios sorunları okey
   // const isSafari = navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Version") !== -1;
-  // const isSafariAndroid = navigator.userAgent.indexOf("Chrome") === -1 && navigator.userAgent.indexOf("Version") !== -1;
-//   if(!isSafari || (deeplink === androidDeepLink && !isSafariAndroid)){
+//   if(!isSafari){
 //     window.location = deeplink;
 // }
 
-if(deeplink !== androidDeepLink){
+if(/chrome/i.test(navigator.userAgent)){
   window.location = deeplink;
 }
   // if (deeplink === androidDeepLink || (deeplink === IosDeepLink && isChrome)) {
